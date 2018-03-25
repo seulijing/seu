@@ -44,7 +44,7 @@ def read_file_cut():
     global num
     global output
     global count1, count2, count3, count4
-    global total1,total2,total3,total4,total5
+    global total1, total2, total3, total4, total5
     while num <= 100:
         count1 = 0
         count2 = 0
