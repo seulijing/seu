@@ -2,7 +2,7 @@
 import re
 import os
 filepath = 'C:\\Users\\Sylar\\Desktop\\SRTP\\demo\\'
-path = 'C:\\Users\\Sylar\\Desktop\\SRTP\\罚金\\'
+path = 'C:\\Users\\Sylar\\Desktop\\SRTP\\提取\\罚金\\'
 num = 1
 while num <= 100:
     name = "%d" % num

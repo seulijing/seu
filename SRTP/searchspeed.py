@@ -1,8 +1,8 @@
 # -*- coding:utf-8 -*-
 import re
 import os
-filepath = 'C:\\Users\\Sylar\\Desktop\\SRTP\\追逐竞驶\\'
-path = 'C:\\Users\\Sylar\\Desktop\\SRTP\\速度\\'
+filepath = 'C:\\Users\\Sylar\\Desktop\\SRTP\\分类\\追逐竞驶\\'
+path = 'C:\\Users\\Sylar\\Desktop\\SRTP\\提取\\速度\\'
 num = 1
 while num <= 12:
     name = "%d" % num

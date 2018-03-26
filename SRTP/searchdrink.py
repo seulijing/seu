@@ -1,8 +1,8 @@
 # -*- coding:utf-8 -*-
 import re
 import os
-filepath = 'C:\\Users\\Sylar\\Desktop\\SRTP\\醉驾\\'
-path = 'C:\\Users\\Sylar\\Desktop\\SRTP\\酒精浓度\\'
+filepath = 'C:\\Users\\Sylar\\Desktop\\SRTP\\分类\\醉驾\\'
+path = 'C:\\Users\\Sylar\\Desktop\\SRTP\\提取\\酒精浓度\\'
 num = 1
 while num <= 80:
     name = "%d" % num

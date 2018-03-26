@@ -16,11 +16,11 @@ total4 = 0
 total5 = 0
 output = ''
 path = "C:\\Users\\Sylar\\Desktop\\SRTP\\demo\\"
-respath1 = "C:\\Users\\Sylar\\Desktop\\SRTP\\醉驾\\"
-respath2 = "C:\\Users\\Sylar\\Desktop\\SRTP\\追逐竞驶\\"
-respath3 = "C:\\Users\\Sylar\\Desktop\\SRTP\\危险化学品\\"
-respath4 = "C:\\Users\\Sylar\\Desktop\\SRTP\\客车校车\\"
-respath5 = "C:\\Users\\Sylar\\Desktop\\SRTP\\混合\\"
+respath1 = "C:\\Users\\Sylar\\Desktop\\SRTP\\分类\\醉驾\\"
+respath2 = "C:\\Users\\Sylar\\Desktop\\SRTP\\分类\\追逐竞驶\\"
+respath3 = "C:\\Users\\Sylar\\Desktop\\SRTP\\分类\\危险化学品\\"
+respath4 = "C:\\Users\\Sylar\\Desktop\\SRTP\\分类\\客车校车\\"
+respath5 = "C:\\Users\\Sylar\\Desktop\\SRTP\\分类\\混合\\"
 
 
 def read_file_cut():
