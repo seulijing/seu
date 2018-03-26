@@ -4,6 +4,8 @@ import os
 filepath = 'C:\\Users\\Sylar\\Desktop\\SRTP\\demo\\'
 path = 'C:\\Users\\Sylar\\Desktop\\SRTP\\提取\\罚金\\'
 num = 1
+
+
 def searchmoney():
     global num
     while num <= 100:
