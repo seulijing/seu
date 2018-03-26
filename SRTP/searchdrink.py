@@ -15,7 +15,7 @@ while num <= 80:
     sentence = source.read()
     res = re.findall(r'\d+(?:\.\d+)?mg/100ml|\d+(?:\.\d+)?mg／100ml|\每百毫升.+\毫克|\d+(?:\.\d+)?mg／ml|\d+(?:\.\d+)?mg/100m1|'
                      r'\d+(?:\.\d+)?mg（乙醇）／ml（血液）|\d+(?:\.\d+)?mg／100mL|\d+(?:\.\d+)?毫克/100毫升|\d+(?:\.\d+)?mg/dl|'
-                     r'\d+(?:\.\d+)?毫克／毫升|\d+(?:\.\d+)?lmg/1OOml|\每100毫升血液中酒精含量为.+\毫克', sentence)
+                     r'\d+(?:\.\d+)?毫克／毫升|\d+(?:\.\d+)?mg/1OOml|\每100毫升血液中酒精含量为.+\毫克', sentence)
     for item in res:
         result.write(item + ' ')
     num = num + 1
