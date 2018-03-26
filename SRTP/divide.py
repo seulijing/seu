@@ -149,7 +149,6 @@ def b():
     # startangle，起始角度，0，表示从0开始逆时针转，为第一块。一般选择从90度开始比较好看
     # pctdistance，百分比的text离圆心的距离
     # patches, l_texts, p_texts，为了得到饼图的返回值，p_texts饼图内部文本的，l_texts饼图外label的文本
-
     # 改变文本的大小
     # 方法是把每一个text遍历。调用set_size方法设置它的属性
     for t in l_text:
