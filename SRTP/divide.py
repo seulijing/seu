@@ -150,7 +150,6 @@ def b():
     # pctdistance，百分比的text离圆心的距离
     # patches, l_texts, p_texts，为了得到饼图的返回值，p_texts饼图内部文本的，l_texts饼图外label的文本
     # 改变文本的大小
-
     # 方法是把每一个text遍历。调用set_size方法设置它的属性
     for t in l_text:
         t.set_size = (30)
