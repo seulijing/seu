@@ -27,18 +27,17 @@ while num <= 100:
             shutil.copyfile(fileName, resname1)
         if (item == '市人民法院') | (item == '中级人民法院'):
             resname2 = path2 + str(name) + ".txt"
-            if os.path.exists(resname1):
-                os.remove(resname1)
-            shutil.copyfile(fileName, resname1)
+            if os.path.exists(resname2):
+                os.remove(resname2)
+            shutil.copyfile(fileName, resname2)
         if (item == '省人民法院') | (item == '高级人民法院'):
             resname3 = path3 + str(name) + ".txt"
-            if os.path.exists(resname1):
-                os.remove(resname1)
-            shutil.copyfile(fileName, resname1)
+            if os.path.exists(resname3):
+                os.remove(resname3)
+            shutil.copyfile(fileName, resname3)
         if (item == '最高人民法院'):
             resname4 = path4 + str(name) + ".txt"
-            if os.path.exists(resname1):
-                os.remove(resname1)
-            shutil.copyfile(fileName, resname1)
-
+            if os.path.exists(resname4):
+                os.remove(resname4)
+            shutil.copyfile(fileName, resname4)
     num = num + 1
