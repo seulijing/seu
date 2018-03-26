@@ -18,4 +18,6 @@ while num <= 80:
                      r'\d+(?:\.\d+)?毫克／毫升|\d+(?:\.\d+)?mg/1OOml|\每100毫升血液中酒精含量为.+\毫克', sentence)
     for item in res:
         result.write(item + ' ')
+    source.close()
+    result.close()
     num = num + 1

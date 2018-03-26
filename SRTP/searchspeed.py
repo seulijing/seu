@@ -16,4 +16,6 @@ while num <= 12:
     res = re.findall(r'\d+(?:\.\d+)?km/h|\d+(?:\.\d+)?公里／小时|\d+(?:\.\d+)?km／h', sentence)
     for item in res:
         result.write(item + ' ')
+    source.close()
+    result.close()
     num = num + 1

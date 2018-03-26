@@ -16,4 +16,6 @@ while num <= 100:
     res = re.findall(r'\人民币.+\元|\罚金.+\元', sentence)
     for item in res:
         result.write(item + ' ')
+    source.close()
+    result.close()
     num = num + 1
