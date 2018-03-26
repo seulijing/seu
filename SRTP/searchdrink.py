@@ -19,6 +19,3 @@ while num <= 80:
     for item in res:
         result.write(item + ' ')
     num = num + 1
-# print(re.findall(r'\d+(?:\.\d+)?mg/100ml', sentence))
-# print(re.findall(r'\人民币.+\元', sentence))
-
