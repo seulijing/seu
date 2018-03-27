@@ -15,7 +15,8 @@ while num <= 100:
     result = open(resname, 'w')
     for line in source.readlines():
         if '原告' not in line:
-            result.write(line)
+            if '代理人' not in line:
+                result.write(line)
     source.close()
     result.close()
     num = num + 1
