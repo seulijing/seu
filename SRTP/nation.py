@@ -18,7 +18,6 @@ output = ''
 def nation():
     global num, output
     fileName = filepath + str(name) + ".txt"
-    source = open(fileName, 'r')
     a()
     res = re.findall(r'壮族|藏族|裕固族|彝族|瑶族|锡伯族|乌孜别克族|维吾尔族|佤族|土家族|土族|塔塔尔族|塔吉克族|水族|畲族|撒拉族'
                      r'羌族|普米族|怒族|纳西族|仫佬族|苗族|蒙古族|门巴族|毛南族|满族|珞巴族|僳僳族|黎族|拉祜族|柯尔克孜族|景颇族|'
@@ -35,7 +34,6 @@ def nation():
     if os.path.exists(resname2):
         os.remove(resname2)
     shutil.copyfile(fileName, resname2)
-    source.close()
 
 
 def a():
@@ -72,6 +70,7 @@ if __name__ == '__main__':
     while num <= 100:
         name = "%d" % num
         nation()
+        output = ''
         num = num + 1
     for root, dirs, files in os.walk(path1):  # 遍历统计
         for each in files:

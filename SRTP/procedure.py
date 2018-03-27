@@ -12,7 +12,7 @@ total1 = 0
 total2 = 0
 
 
-def level():
+def procedure():
     global num, total1, total2
     fileName = filepath + str(name) + ".txt"
     source = open(fileName, 'r')
@@ -49,7 +49,7 @@ def b():
 if __name__ == '__main__':
     while num <= 100:
         name = "%d" % num
-        level()
+        procedure()
         num = num + 1
     print("简易程序：", total1)
     print("普通程序：", total2)
