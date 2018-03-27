@@ -13,6 +13,7 @@ path5 = 'C:\\Users\\Sylar\\Desktop\\SRTP\\提取\\学历\\中专\\'
 path6 = 'C:\\Users\\Sylar\\Desktop\\SRTP\\提取\\学历\\硕士\\'
 path7 = 'C:\\Users\\Sylar\\Desktop\\SRTP\\提取\\学历\\专科\\'
 path8 = 'C:\\Users\\Sylar\\Desktop\\SRTP\\提取\\学历\\大专\\'
+path9 = 'C:\\Users\\Sylar\\Desktop\\SRTP\\提取\\学历\\技校\\'
 num = 1
 total1 = 0
 total2 = 0
@@ -22,16 +23,17 @@ total5 = 0
 total6 = 0
 total7 = 0
 total8 = 0
+total9 = 0
 
 
 def education():
-    global num, total1, total2, total3, total4, total5, total6, total7, total8
+    global num, total1, total2, total3, total4, total5, total6, total7, total8, total9
     while num <= 100:
         name = "%d" % num
         fileName = filepath + str(name) + ".txt"
         source = open(fileName, 'r')
         sentence = source.read()
-        res = re.findall(r'，大学|，小学|，初中|，高中|中专|大专|硕士|专科', sentence)
+        res = re.findall(r'，大学|，小学|，初中|，高中|中专|大专|硕士|专科|，技校', sentence)
         for item in res:
             if item == '，大学':
                 resname1 = path1 + str(name) + ".txt"
@@ -81,6 +83,12 @@ def education():
                     os.remove(resname8)
                 shutil.copyfile(fileName, resname8)
                 total8 = total8 + 1
+            if item == '，技校':
+                resname9 = path9 + str(name) + ".txt"
+                if os.path.exists(resname9):
+                    os.remove(resname9)
+                shutil.copyfile(fileName, resname9)
+                total9 = total9 + 1
         num = num + 1
 
 
@@ -106,4 +114,5 @@ if __name__ == '__main__':
     print("硕士：", total6)
     print("专科：", total7)
     print("大专：", total8)
+    print("技校：", total9)
 
