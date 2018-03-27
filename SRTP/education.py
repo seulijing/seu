@@ -6,9 +6,9 @@ import shutil
 import jieba
 import matplotlib.pyplot as plt
 
-filepath = 'C:\\Users\\Sylar\\Desktop\\SRTP\\demo\\'
-path1 = 'C:\\Users\\Sylar\\Desktop\\SRTP\\提取\\被告性别\\男\\'
-path2 = 'C:\\Users\\Sylar\\Desktop\\SRTP\\提取\\被告性别\\女\\'
+filepath = 'C:\\Users\\Sylar\\Desktop\\SRTP\\demo1\\'
+path1 = 'C:\\Users\\Sylar\\Desktop\\SRTP\\提取\\学历\\男\\'
+path2 = 'C:\\Users\\Sylar\\Desktop\\SRTP\\提取\\学历\\女\\'
 num = 1
 total1 = 0
 total2 = 0

@@ -16,23 +16,26 @@ output = ''
 
 
 def sex():
-    global num, output
+    global num, output, total1, total2
     while num <= 100:
         name = "%d" % num
         fileName = filepath + str(name) + ".txt"
         a()
         res = re.findall(r'男|女', output)
+        print(res)
         for item in res:
             if item == '男':
                 resname1 = path1 + str(name) + ".txt"
                 if os.path.exists(resname1):
                     os.remove(resname1)
                 shutil.copyfile(fileName, resname1)
+                total1 = total1 + 1
             if item == '女':
                 resname2 = path2 + str(name) + ".txt"
                 if os.path.exists(resname2):
                     os.remove(resname2)
                 shutil.copyfile(fileName, resname2)
+                total2 = total2 + 1
         output = ''
         num = num + 1
 
@@ -69,12 +72,7 @@ def b():
 
 if __name__ == '__main__':
     sex()
-    for root, dirs, files in os.walk(path1):  # 遍历统计
-        for each in files:
-            total1 += 1  # 统计文件夹下文件个数
-    for root, dirs, files in os.walk(path2):  # 遍历统计
-        for each in files:
-            total2 += 1  # 统计文件夹下文件个数
+
     print("男：", total1)
     print("女：", total2)
     b()
