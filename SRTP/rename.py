@@ -4,7 +4,7 @@ import os
 
 def rename():
     count = 1
-    path=('C:\\Users\\Sylar\\Desktop\\SRTP\\分类\\混合')
+    path=('C:\\Users\\Sylar\\Desktop\\SRTP\\提取\\被告民族\\民族\\')
     filelist = os.listdir(path)  # 该文件夹下所有的文件（包括文件夹）
     for files in filelist:  # 遍历所有文件
         Olddir = os.path.join(path, files) #原来的文件路径

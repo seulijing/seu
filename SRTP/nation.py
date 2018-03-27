@@ -6,7 +6,7 @@ import shutil
 import jieba
 import matplotlib.pyplot as plt
 
-filepath = 'C:\\Users\\Sylar\\Desktop\\SRTP\\demo\\'
+filepath = 'C:\\Users\\Sylar\\Desktop\\SRTP\\提取\\被告民族\\民族\\'
 path1 = 'C:\\Users\\Sylar\\Desktop\\SRTP\\提取\\被告民族\\汉族\\'
 path2 = 'C:\\Users\\Sylar\\Desktop\\SRTP\\提取\\被告民族\\少数民族\\'
 num = 1
@@ -67,7 +67,7 @@ def b():
 
 
 if __name__ == '__main__':
-    while num <= 100:
+    while num <= 55:
         name = "%d" % num
         nation()
         output = ''

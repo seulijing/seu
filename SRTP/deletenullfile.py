@@ -1,7 +1,7 @@
 # -*- coding:utf-8 -*-
 import os  # 引入文件操作库
 
-filepath = 'C:\\Users\\Sylar\\Desktop\\SRTP\\提取\\罚金\\'
+filepath = 'C:\\Users\\Sylar\\Desktop\\SRTP\\提取\\被告民族\\民族\\'
 num = 1
 while num <= 100:
     name = "%d" % num
