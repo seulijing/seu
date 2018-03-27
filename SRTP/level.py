@@ -37,7 +37,7 @@ def level():
 def b():
     plt.rcParams['font.sans-serif'] = ['SimHei']  # 用来正常显示中文标签
     plt.rcParams['axes.unicode_minus'] = False  # 用来正常显示负号
-    plt.figure(figsize=(2, 3))
+    plt.figure(figsize=(3, 5))
     data = [total1, total2]
     labels = ['简易程序', '普通程序']
     p = plt.bar(range(len(data)), data, tick_label=labels)

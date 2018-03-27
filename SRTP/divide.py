@@ -52,7 +52,6 @@ def read_file_cut():
         count4 = 0
         name = "%d" % num
         fileName = path + str(name) + ".txt"
-        source = open(fileName, 'r')
         dwords1 = {}.fromkeys([line.strip() for line in codecs.open('dwords1.txt')])
         dwords2 = {}.fromkeys([line.strip() for line in codecs.open('dwords2.txt')])
         dwords3 = {}.fromkeys([line.strip() for line in codecs.open('dwords3.txt')])
@@ -102,7 +101,6 @@ def read_file_cut():
             total5 = total5 + 1
         num = num + 1
         output = ''
-        source.close()
     else:
         print('End All')
 
