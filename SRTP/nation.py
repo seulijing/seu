@@ -67,7 +67,7 @@ def b():
 
 
 if __name__ == '__main__':
-    while num <= 55:
+    while num <= 54:
         name = "%d" % num
         nation()
         output = ''

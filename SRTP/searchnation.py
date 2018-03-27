@@ -1,7 +1,7 @@
 # -*- coding:utf-8 -*-
 import re
 import os
-filepath = 'C:\\Users\\Sylar\\Desktop\\SRTP\\demo\\'
+filepath = 'C:\\Users\\Sylar\\Desktop\\SRTP\\demo1\\'
 path = 'C:\\Users\\Sylar\\Desktop\\SRTP\\提取\\被告民族\\民族\\'
 num = 1
 while num <= 100:
