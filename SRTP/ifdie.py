@@ -18,14 +18,14 @@ def ifdie():
         fileName = filepath + str(name) + ".txt"
         source = open(fileName, 'r')
         sentence = source.read()
-        res = re.findall(r'重伤|当场死亡|无效死亡|而死亡', sentence)
+        res = re.findall(r'重伤|当场死亡|无效死亡|而死亡|"损伤死亡', sentence)
         for item in res:
             if item == '重伤':
                 resname1 = path1 + str(name) + ".txt"
                 if os.path.exists(resname1):
                     os.remove(resname1)
                 shutil.copyfile(fileName, resname1)
-            if (item == '当场死亡') | (item == '无效死亡') | (item == '而死亡'):
+            if (item == '当场死亡') | (item == '无效死亡') | (item == '而死亡') | (item == '损伤死亡'):
                 resname2 = path2 + str(name) + ".txt"
                 if os.path.exists(resname2):
                     os.remove(resname2)
