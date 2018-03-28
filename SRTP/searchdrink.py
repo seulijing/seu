@@ -4,21 +4,42 @@ import os
 filepath = 'C:\\Users\\Sylar\\Desktop\\SRTP\\分类\\醉驾\\'
 path = 'C:\\Users\\Sylar\\Desktop\\SRTP\\提取\\酒精浓度\\'
 num = 1
-while num <= 80:
-    name = "%d" % num
-    fileName = filepath + str(name) + ".txt"
-    source = open(fileName, 'r')
-    resName = path + str(name) + ".txt"
-    if os.path.exists(resName):
-        os.remove(resName)
-    result = open(resName, 'w')
-    sentence = source.read()
-    res = re.findall(r'\d+(?:\.\d+)?mg/|\d+(?:\.\d+)?mg／|\每百毫升.+\毫克|\d+(?:\.\d+)?mg／ml|\d+(?:\.\d+)?mg/|'
-                     r'\d+(?:\.\d+)?mg（乙醇）／ml（血液）|\d+(?:\.\d+)?mg／|\d+(?:\.\d+)?毫克/|\d+(?:\.\d+)?mg/dl|'
-                     r'\d+(?:\.\d+)?毫克／毫升|\d+(?:\.\d+)?mg/|\为.+\毫克', sentence)
-    for item in res:
-        res1 = re.findall(r'\d{2,3}.\d{1,2}|\d{2,3}', item)
-        print(num, res1)
-    source.close()
-    result.close()
-    num = num + 1
+total1 = 0
+total2 = 0
+def drink():
+    global num, total1, total2
+    while num <= 80:
+        name = "%d" % num
+        fileName = filepath + str(name) + ".txt"
+        source = open(fileName, 'r')
+        resName = path + str(name) + ".txt"
+        if os.path.exists(resName):
+            os.remove(resName)
+        result = open(resName, 'w')
+        sentence = source.read()
+        res = re.findall(r'\d+(?:\.\d+)?mg/|\d+(?:\.\d+)?mg／|\每百毫升.+\毫克|\d+(?:\.\d+)?mg／ml|\d+(?:\.\d+)?mg/|'
+                         r'\d+(?:\.\d+)?mg（乙醇）／ml（血液）|\d+(?:\.\d+)?mg／|\d+(?:\.\d+)?毫克/|\d+(?:\.\d+)?mg/dl|'
+                         r'\d+(?:\.\d+)?毫克／毫升|\d+(?:\.\d+)?mg/|\毫升血液中酒精含量为.+\毫克', sentence)
+        list1 = sorted(set(res), key=res.index)
+        for item in list1:
+            res1 = re.findall(r'\d+(?:\.\d+)?', item)
+            for a in res1:
+                n = float(a)
+                if (n != 80.0) & (n != 200.0):
+                    if n < 10:
+                        n = n * 100
+                    numb = round(n, 1)
+                    if 80 < numb < 200:
+                        total1 = total1 + 1
+                    if numb >= 200:
+                        total2 = total2 + 1
+                    print(num, numb)
+        source.close()
+        result.close()
+        num = num + 1
+
+
+if __name__ == '__main__':
+    drink()
+    print("一般醉驾：", total1)
+    print("从重：", total2)
