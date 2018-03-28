@@ -52,9 +52,9 @@ def remove():
         if os.path.exists(fileName1):
             source1 = open(fileName1, 'r')
             sentence1 = source1.read()
-            if "不予采纳" in sentence1:
+            if ("不予采纳" in sentence1) | ("驳回" in sentence1):
+                source1.close()
                 os.remove(fileName1)
-            source1.close()
         num1 = num1 + 1
     while num2 <= total2:
         name = "%d" % num2
@@ -62,9 +62,9 @@ def remove():
         if os.path.exists(fileName2):
             source2 = open(fileName2, 'r')
             sentence2 = source2.read()
-            if "不予采纳" in sentence2:
+            if ("不予采纳" in sentence2) | ("驳回" in sentence2):
+                source2.close()
                 os.remove(fileName2)
-            source2.close()
         num2 = num2 + 1
 
 
