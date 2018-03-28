@@ -10,6 +10,7 @@ num = 1
 total1 = 0
 total2 = 0
 
+
 def ifdie():
     global num
     while num <= 100:
