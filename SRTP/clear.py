@@ -12,18 +12,12 @@ while num <= 100:
     source = open(fileName, 'r')
     result = open(resname, 'w')
     spy = {}.fromkeys([line.strip() for line in codecs.open('spy.txt')])
-    flag = 0
     for line in source.readlines():
-        for seg in spy:
-            if seg in line:
-                flag = 1
-                break
-            if '原告' not in line:
-                if '代理人' not in line:
-                    result.write(line)
-                    break
-        if flag == 1:
+        if '审判员' in line or '审判长' in line or '代书记员' in line or '书记员' in line or '附件' in line or '附相关法条' in line or '陪审员' in line or '人民陪审员' in line:
             break
+        if '原告' not in line and '代理人' not in line:
+            result.write(line)
+
     source.close()
     result.close()
     num = num + 1
