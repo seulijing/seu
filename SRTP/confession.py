@@ -39,14 +39,7 @@ def ifdie():
 def remove():
     num1 = 1
     num2 = 1
-    global total1, total2
-    for root, dirs, files in os.walk(path1):  # 遍历统计
-        for each in files:
-            total1 += 1  # 统计文件夹下文件个数
-    for root, dirs, files in os.walk(path2):  # 遍历统计
-        for each in files:
-            total2 += 1  # 统计文件夹下文件个数
-    while num1 <= total1:
+    while num1 <= 100:
         name = "%d" % num1
         fileName1 = path1 + str(name) + ".txt"
         if os.path.exists(fileName1):
@@ -56,7 +49,7 @@ def remove():
                 source1.close()
                 os.remove(fileName1)
         num1 = num1 + 1
-    while num2 <= total2:
+    while num2 <= 100:
         name = "%d" % num2
         fileName2 = path2 + str(name) + ".txt"
         if os.path.exists(fileName2):

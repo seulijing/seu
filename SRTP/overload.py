@@ -1,8 +1,8 @@
 # -*- coding:utf-8 -*-
 import re
 import os
-filepath = 'C:\\Users\\Sylar\\Desktop\\SRTP\\分类\\追逐竞驶\\'
-path = 'C:\\Users\\Sylar\\Desktop\\SRTP\\提取\\速度\\'
+filepath = 'C:\\Users\\Sylar\\Desktop\\SRTP\\分类\\客车校车\\'
+path = 'C:\\Users\\Sylar\\Desktop\\SRTP\\提取\\超载\\'
 num = 1
 while num <= 100:
     name = "%d" % num
@@ -14,7 +14,7 @@ while num <= 100:
             os.remove(resName)
         result = open(resName, 'w')
         sentence = source.read()
-        res = re.findall(r'\d+(?:\.\d+)?km/h|\d+(?:\.\d+)?公里／小时|\d+(?:\.\d+)?km／h', sentence)
+        res = re.findall(r'\d+(?:\.\d+)?%', sentence)
         for item in res:
             result.write(item + ' ')
         source.close()
