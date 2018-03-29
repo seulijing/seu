@@ -2,7 +2,7 @@
 import os
 import re
 filepath = 'C:\\Users\\Sylar\\Desktop\\SRTP\\demo1\\'
-path = 'C:\\Users\\Sylar\\Desktop\\SRTP\\提取\\犯罪记录\\'
+path = 'C:\\Users\\Sylar\\Desktop\\SRTP\\提取\\拘役\\'
 num = 1
 while num <= 100:
     name = "%d" % num
@@ -13,10 +13,12 @@ while num <= 100:
         os.remove(resName)
     result = open(resName, 'w')
     sentence = source.read()
-    res = re.findall(r'\因.+?\行政拘留|\因.+?\罚款', sentence)
-    for item in res:
+    res = re.findall(r'\拘役.+?\个月', sentence)
+    list1 = sorted(set(res), key=res.index)
+    for item in list1:
         result.write(item + ' ')
     source.close()
     result.close()
-    print(res)
+    print(num, list1)
     num = num + 1
+
