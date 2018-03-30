@@ -2,7 +2,7 @@
 import re
 import shutil
 import os
-
+import matplotlib.pyplot as plt
 filepath = 'C:\\Users\\Sylar\\Desktop\\SRTP\\demo1\\'
 path1 = 'C:\\Users\\Sylar\\Desktop\\SRTP\\提取\\责任\\主要责任\\'
 path2 = 'C:\\Users\\Sylar\\Desktop\\SRTP\\提取\\责任\\同等责任\\'
@@ -40,6 +40,21 @@ def response():
         num = num + 1
 
 
+def b():
+    plt.rcParams['font.sans-serif'] = ['SimHei']  # 用来正常显示中文标签
+    plt.rcParams['axes.unicode_minus'] = False  # 用来正常显示负号
+    plt.figure(figsize=(5, 6))
+    data = [total1, total2, total3]
+    labels = ['主要责任', '同等责任', '次要责任']
+    a = plt.bar(range(len(data)), data, tick_label=labels, color='#37C6C0')
+    for rect in a:
+        plt.text(rect.get_x() + rect.get_width() / 2, rect.get_height(), '%d' % int(rect.get_height()), ha='center',
+                 va='bottom')
+    plt.title('责任信息柱状图')
+    plt.ylim(0, 15)
+    plt.show()
+
+
 if __name__ == '__main__':
     response()
     for root, dirs, files in os.walk(path1):  # 遍历统计
@@ -54,3 +69,4 @@ if __name__ == '__main__':
     print("主要责任：", total1)
     print("同等责任：", total2)
     print("次要责任：", total3)
+    b()

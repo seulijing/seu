@@ -95,12 +95,15 @@ def education():
 def b():
     plt.rcParams['font.sans-serif'] = ['SimHei']  # 用来正常显示中文标签
     plt.rcParams['axes.unicode_minus'] = False  # 用来正常显示负号
-    plt.figure(figsize=(3, 5))
-    data = [total1, total2]
-    labels = ['男', '女']
-    plt.bar(range(len(data)), data, tick_label=labels)
-    plt.title('被告人性别信息柱状图')
-    plt.ylim(0, 80)
+    plt.figure(figsize=(5, 6))
+    data = [total1, total2, total3, total4, total5, total6, total7, total8, total9]
+    labels = ['大学', '小学', '初中', '高中', '中专', '硕士', '专科', '大专', '技校']
+    a = plt.bar(range(len(data)), data, tick_label=labels, color='#37C6C0')
+    for rect in a:
+        plt.text(rect.get_x() + rect.get_width() / 2, rect.get_height(), '%d' % int(rect.get_height()), ha='center',
+                 va='bottom')
+    plt.title('学历信息柱状图')
+    plt.ylim(0, 25)
     plt.show()
 
 
@@ -115,4 +118,5 @@ if __name__ == '__main__':
     print("专科：", total7)
     print("大专：", total8)
     print("技校：", total9)
+    b()
 
