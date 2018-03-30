@@ -18,6 +18,7 @@ def searchmoney():
         result = open(resName, 'w')
         sentence = source.read()
         res = re.findall(r'\人民币.+\元|\罚金.+\元', sentence)
+        res1 = re.sub(r'人民币|元|罚金|元', '', res)
         CN_NUM={
             '〇': 0, '一': 1, '二': 2, '三': 3, '四': 4, '五': 5, '六': 6, '七': 7, '八': 8, '九': 9, '零': 0, '壹': 1, '贰': 2,
             '叁': 3, '肆': 4, '伍': 5, '陆': 6, '柒': 7, '捌': 8, '玖': 9,
@@ -63,8 +64,9 @@ def searchmoney():
                     tmp += x
             val += tmp
             return val
-        for item in res:
+        for item in res1:
             item1 = chinese_to_arabic(item)
+            print(num, item)
             result.write(item1)
             result.write(' ')
         source.close()
