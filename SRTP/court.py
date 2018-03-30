@@ -64,7 +64,10 @@ def b():
     plt.figure(figsize=(5, 6))
     data = [total1, total2, total3, total4]
     labels = ['初级人民法院', '中级人民法院', '高级人民法院', '最高人民法院']
-    plt.bar(range(len(data)), data, tick_label=labels)
+    a = plt.bar(range(len(data)), data, tick_label=labels, color='#37C6C0')
+    for rect in a:
+        plt.text(rect.get_x() + rect.get_width() / 2, rect.get_height(), '%d' % int(rect.get_height()), ha='center',
+                 va='bottom')
     plt.title('法院级别信息柱状图')
     plt.ylim(0, 70)
     plt.show()

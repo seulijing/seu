@@ -135,7 +135,7 @@ def b():
     labels = [u'醉驾', u'追逐竞驶', u'危险化学品', u'客车校车', u'混合']
     # 每个标签占多大，会自动去算百分比
     sizes = [total1, total2, total3, total4, total5]
-    colors = ['red', 'yellowgreen', 'lightskyblue', 'green', 'blue']
+    colors = ['#D0E9FF', '#37C6C0', '#1DB0B8', '#00343F', '#011935']
     # 将某部分爆炸出来， 使用括号，将第一块分割出来，数值的大小是分割出来的与其他两块的间隙
     patches, l_text, p_text = plt.pie(sizes, labels=labels, colors=colors,
                                       labeldistance=1.1, autopct='%3.1f%%', shadow=False,

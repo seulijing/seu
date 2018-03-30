@@ -47,9 +47,12 @@ def b():
     plt.figure(figsize=(3, 5))
     data = [total1, total2]
     labels = ['汉族', '少数民族']
-    plt.bar(range(len(data)), data, tick_label=labels)
+    a = plt.bar(range(len(data)), data, tick_label=labels, color='#37C6C0')
+    for rect in a:
+        plt.text(rect.get_x() + rect.get_width() / 2, rect.get_height(), '%d' % int(rect.get_height()), ha='center',
+                 va='bottom')
     plt.title('被告人民族信息柱状图')
-    plt.ylim(0, 100)
+    plt.ylim(0, 75)
     plt.show()
 
 
