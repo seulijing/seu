@@ -42,7 +42,6 @@ def b():
     plt.figure(figsize=(3, 5))
     data = [total1, total2]
     labels = ['男', '女']
-    colors = ['#37C6C0']
     a = plt.bar(range(len(data)), data, tick_label=labels, color='#37C6C0')
     for rect in a:
         plt.text(rect.get_x() + rect.get_width() / 2, rect.get_height(), '%d' % int(rect.get_height()), ha='center',

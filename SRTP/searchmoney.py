@@ -1,13 +1,23 @@
 # -*- coding:utf-8 -*-
 import re
 import os
-filepath = 'C:\\Users\\Sylar\\Desktop\\SRTP\\demo\\'
+import matplotlib.pyplot as plt
+filepath = 'C:\\Users\\Sylar\\Desktop\\SRTP\\demo1\\'
 path = 'C:\\Users\\Sylar\\Desktop\\SRTP\\提取\\罚金\\'
 num = 1
+total1 = 0
+total2 = 0
+total3 = 0
+total4 = 0
+total5 = 0
+total6 = 0
+total7 = 0
+total8 = 0
+total9 = 0
 
 
 def searchmoney():
-    global num
+    global num, total1, total2, total3, total4, total5, total6, total7, total8, total9
     while num <= 100:
         name = "%d" % num
         fileName = filepath + str(name) + ".txt"
@@ -17,57 +27,48 @@ def searchmoney():
             os.remove(resName)
         result = open(resName, 'w')
         sentence = source.read()
-        res = re.findall(r'\人民币.+?\元|\罚金.+?\元', sentence)
-        CN_NUM={
-            '〇': 0, '一': 1, '二': 2, '三': 3, '四': 4, '五': 5, '六': 6, '七': 7, '八': 8, '九': 9, '零': 0, '壹': 1, '贰': 2,
-            '叁': 3, '肆': 4, '伍': 5, '陆': 6, '柒': 7, '捌': 8, '玖': 9,
-        }
-        CN_UNIT = {
-            '十': 10,
-            '拾': 10,
-            '百': 100,
-            '佰': 100,
-            '千': 1000,
-            '仟': 1000,
-            '万': 10000,
-            '萬': 10000,
-            '亿': 100000000,
-            '億': 100000000,
-            '兆': 1000000000000,
-        }
-
-        def chinese_to_arabic(cn: str)-> int:
-            #汉字转数字
-            unit = 0  # current
-            ldig = []  # digest
-            for cndig in reversed(cn):
-                if cndig in CN_UNIT:
-                    unit = CN_UNIT.get(cndig)
-                    if unit == 10000 or unit == 100000000:
-                        ldig.append(unit)
-                        unit = 1
-                else:
-                    dig = CN_NUM.get(cndig)
-                    if unit:
-                        dig *= unit
-                        unit = 0
-                    ldig.append(dig)
-            if unit == 10:
-                ldig.append(10)
-            val, tmp = 0, 0
-            for x in reversed(ldig):
-                if x == 10000 or x == 100000000:
-                    val += tmp * x
-                    tmp = 0
-                else:
-                    tmp += x
-            val += tmp
-            return val
-        for item in res:
-            item1 = chinese_to_arabic(item)
-            result.write(item1)
-            result.write(' ')
+        res = re.findall(r'\罚金[一二三四五六七八九]+?\千元|\罚金人民币[一二三四五六七八九]+?\千元', sentence)
+        list1 = sorted(set(res), key=res.index)
+        for w in list1:
+            ress = re.findall(r'[一二三四五六七八九]+?\千元', w)
+            for item in ress:
+                if item == "一千元":
+                    total1 += 1
+                if item == "二千元":
+                    total2 += 1
+                if item == "三千元":
+                    total3 += 1
+                if item == "四千元":
+                    total4 += 1
+                if item == "五千元":
+                    total5 += 1
+                if item == "六千元":
+                    total6 += 1
+                if item == "七千元":
+                    total7 += 1
+                if item == "八千元":
+                    total8 += 1
+                if item == "九千元":
+                    total9 += 1
         source.close()
         result.close()
-    num = num + 1
+        num = num + 1
 
+
+def b():
+    plt.rcParams['font.sans-serif'] = ['SimHei']  # 用来正常显示中文标签
+    plt.rcParams['axes.unicode_minus'] = False  # 用来正常显示负号
+    plt.figure(figsize=(6, 7))
+    data = [total1, total2, total3, total4, total5, total6, total7, total8, total9]
+    labels = ['一千元', '二千元', '三千元', '四千元', '五千元', '六千元', '七千元', '八千元', '九千元']
+    a = plt.bar(range(len(data)), data, tick_label=labels, color='#37C6C0')
+    for rect in a:
+        plt.text(rect.get_x() + rect.get_width()/2, rect.get_height(), '%d' % int(rect.get_height()), ha='center', va='bottom')
+    plt.title('罚金信息柱状图')
+    plt.ylim(0, 25)
+    plt.show()
+
+
+if __name__ == '__main__':
+    searchmoney()
+    b()

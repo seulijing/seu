@@ -2,6 +2,7 @@
 import re
 import shutil
 import os
+import matplotlib.pyplot as plt
 
 filepath = 'C:\\Users\\Sylar\\Desktop\\SRTP\\demo1\\'
 path1 = 'C:\\Users\\Sylar\\Desktop\\SRTP\\提取\\严重后果\\重伤\\'
@@ -33,6 +34,21 @@ def ifdie():
         num = num + 1
 
 
+def b():
+    plt.rcParams['font.sans-serif'] = ['SimHei']  # 用来正常显示中文标签
+    plt.rcParams['axes.unicode_minus'] = False  # 用来正常显示负号
+    plt.figure(figsize=(3, 5))
+    data = [total1, total2]
+    labels = ['重伤', '死亡']
+    a = plt.bar(range(len(data)), data, tick_label=labels, color='#37C6C0')
+    for rect in a:
+        plt.text(rect.get_x() + rect.get_width() / 2, rect.get_height(), '%d' % int(rect.get_height()), ha='center',
+                 va='bottom')
+    plt.title('伤亡信息柱状图')
+    plt.ylim(0, 10)
+    plt.show()
+
+
 if __name__ == '__main__':
     ifdie()
     for root, dirs, files in os.walk(path1):  # 遍历统计
@@ -43,3 +59,4 @@ if __name__ == '__main__':
             total2 += 1  # 统计文件夹下文件个数
     print("重伤：", total1)
     print("死亡：", total2)
+    b()
