@@ -17,9 +17,14 @@ while num <= 100:
     res = re.findall(r'\出生于.+?\省|\,.+?\省|\出生于.+?\自治区|\出生于.+?\市|\,.+?\自治区'
                      r'\户籍所在地.+?\省|\户籍所在地.+?\自治区|\户籍所在地.+?\市'
                      r'\户籍地址：.+?\省|\户籍地址：.+?\市', sentence)
-    for item in res:
-        print(res)
-        result.write(item + ' ')
+    list1 = sorted(set(res), key=res.index)
+    for a in list1:
+        res1 = re.findall(r'河北|山西|辽宁|吉林|黑龙江|江苏|浙江|安徽|福建|江西|山东|河南|'
+                          r'湖北|湖南|广东|海南|四川|贵州|云南|陕西|甘肃|青海|台湾|北京|上海|重庆|天津|'
+                          r'广西|宁夏|西藏|新疆|内蒙', a)
+        for item in res1:
+            print(res1)
+            result.write(item + ' ')
     source.close()
     result.close()
     num = num + 1
